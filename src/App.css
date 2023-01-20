@@ -1,3 +1,75 @@
 .App {
   text-align: left;
+  display: flex;
+}
+
+aside.sidebar {
+  float: left;
+  width: 20%;
+  height: 100vh;
+  background-color: #373737;
+  color: #fff;
+}
+
+aside.sidebar .sidebar__title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+aside.sidebar .sidebar__title a {
+  color: #fff;
+}
+
+aside.sidebar .sidebar__title a:hover {
+  color: rgb(214, 214, 214);
+}
+
+main.content {
+  float: left;
+  width: 80%;
+  min-height: 100vh;
+  background-color: rgb(43, 42, 74);
+}
+
+.slideInFromLeft {
+  animation-name: slideInFromLeft;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.delay-half {
+  animation-delay: 0.5s;
+}
+
+.delay-1 {
+  animation-delay: 1s;
+}
+
+.delay-2 {
+  animation-delay: 2s;
+}
+
+.delay-3 {
+  animation-delay: 3s;
+}
+
+/* Create an animation that slides item from left to right */
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  /* make a little delay */
+  50% {
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
 }
