@@ -54,7 +54,7 @@ export default class ProfileImagePicker extends React.Component {
       return (
         <div className="profileImage fail rollInFromLeft delay-7">
           <img src="https://placehold.jp/150x150.png" alt="profile" />
-          <button type="button" className="imageButton rounded" onClick={this.openImageUploadWindow}>
+          <button type="button" className="imageButton button rounded" onClick={this.openImageUploadWindow}>
             <i className="fas fa-upload" />
           </button>
         </div>
@@ -64,7 +64,7 @@ export default class ProfileImagePicker extends React.Component {
     return (
       <div className="profileImage success rollInFromLeft delay-9">
         <img src={image} alt="profile" />
-        <button type="button" className="imageButton rounded" onClick={this.openImageUploadWindow}>
+        <button type="button" className="imageButton button rounded" onClick={this.openImageUploadWindow}>
           <i className="fas fa-upload" />
         </button>
       </div>
