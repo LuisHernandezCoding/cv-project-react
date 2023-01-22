@@ -1,7 +1,7 @@
 import React from 'react';
 
-import SimpleInput from './SimpleInput';
-import IconButton from './IconButton';
+import SimpleInput from '../helpers/SimpleInput';
+import IconButton from '../helpers/IconButton';
 
 export default class SkillsFormInfo extends React.Component {
   constructor(props) {

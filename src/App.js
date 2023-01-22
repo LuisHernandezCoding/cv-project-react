@@ -1,8 +1,8 @@
 import './App.css';
 import React from 'react';
-import Sidebar from './components/Sidebar';
-import Footer from './components/Footer';
-import Form from './components/Form';
+import Sidebar from './components/layout/Sidebar';
+import Footer from './components/layout/Footer';
+import Form from './components/form/Form';
 
 function App() {
   return (

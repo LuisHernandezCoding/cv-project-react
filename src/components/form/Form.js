@@ -1,8 +1,8 @@
 import React from 'react';
-import ProfileImagePicker from './ProfileImagePicker';
+import ProfileImagePicker from '../helpers/ProfileImagePicker';
 import BasicFormInfo from './BasicFormInfo';
 import SkillsFormInfo from './SkillsFormInfo';
-import IconButton from './IconButton';
+import IconButton from '../helpers/IconButton';
 
 export default function Form() {
   return (
