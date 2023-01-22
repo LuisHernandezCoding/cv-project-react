@@ -142,7 +142,7 @@ main .main__title {
   height: 34px;
 }
 
-button.rounded {
+.button.rounded {
   border-radius: 100%;
   background-color: #fff;
   border: 1px solid #000;
@@ -153,18 +153,36 @@ button.rounded {
   transition: all 0.3s ease;
 }
 
-button.rounded:hover {
+.button.rounded:hover {
   background-color: #000;
   color: #fff;
 }
 
-button.rounded .fas {
+.button.rounded .fas {
   font-size: 0.8em;
   padding: 0;
   padding-bottom: 1em;
 }
 
-button.rounded:hover .fa {
+.button.rounded:hover .fa {
+  color: #fff;
+}
+
+.button.title {
+  border: 1px solid #2ecc71;
+  color: #2ecc71;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  margin: 0 0 0 3em;
+  padding: 0.5em;
+  position: relative;
+  left: 4em;
+  bottom: 0.3em;
+}
+
+.button.title:hover {
+  background-color: #000;
   color: #fff;
 }
 
