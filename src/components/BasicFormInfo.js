@@ -1,6 +1,6 @@
 import React from 'react';
 
-import InputElement from './inputElement';
+import InputElement from './InputElement';
 
 export default function BasicFormInfo() {
   return (
