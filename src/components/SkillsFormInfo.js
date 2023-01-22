@@ -1,5 +1,6 @@
 import React from 'react';
-import SkillInput from './SkillInput';
+
+import SimpleInput from './SimpleInput';
 import IconButton from './IconButton';
 
 export default class SkillsFormInfo extends React.Component {
@@ -75,12 +76,13 @@ export default class SkillsFormInfo extends React.Component {
         <br />
         <br />
         {Object.keys(skills).map((skill) => (
-          <SkillInput
+          <SimpleInput
             key={skill}
-            skillId={skill}
-            skillName={skills[skill]}
-            removeSkill={this.removeSkill}
-            editSkill={this.editSkill}
+            inputId={skill}
+            inputName={skills[skill]}
+            defaultValue="New Skill"
+            removeInput={this.removeSkill}
+            editInput={this.editSkill}
           />
         ))}
       </div>

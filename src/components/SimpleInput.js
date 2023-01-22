@@ -1,21 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function SkillInput(props) {
+export default function SimpleInput(props) {
   const {
-    skillId,
-    skillName,
-    removeSkill,
-    editSkill,
+    inputId,
+    inputName,
+    defaultValue,
+    removeInput,
+    editInput,
   } = props;
 
   let status = 'success';
   if (
-    skillName === ''
-    || skillName === ' '
-    || skillName === undefined
-    || skillName === null
-    || skillName === 'New Skill'
+    inputName === ''
+    || inputName === ' '
+    || inputName === undefined
+    || inputName === null
+    || inputName === defaultValue
   ) {
     status = 'fail';
   }
@@ -24,22 +25,22 @@ export default function SkillInput(props) {
     <div className="flex is-fullWidth">
       <span className={`medium formIcon left ${status}`}><i className="fas fa-angle-right" /></span>
       <h2
-        id={skillId}
+        id={inputId}
         className={`medium formGroup borderRadius ${status}`}
         contentEditable="true"
         suppressContentEditableWarning="true"
         onFocus={(e) => {
-          if (e.target.textContent === 'New Skill') {
+          if (e.target.textContent === defaultValue) {
             e.target.textContent = '';
           } else {
-            e.target.textContent = skillName;
+            e.target.textContent = inputName;
           }
         }}
         onBlur={(e) => {
           if (e.target.textContent === '') {
-            e.target.textContent = 'New Skill';
+            e.target.textContent = defaultValue;
           }
-          editSkill(skillId, e.target.textContent);
+          editInput(inputId, e.target.textContent);
         }}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
@@ -48,16 +49,16 @@ export default function SkillInput(props) {
           }
         }}
       >
-        {skillName}
+        {inputName}
       </h2>
       <div
         className="medium formIcon right danger"
-        onClick={() => removeSkill(skillId)}
+        onClick={() => removeInput(inputId)}
         role="button"
         tabIndex={0}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
-            removeSkill(skillId);
+            removeInput(inputId);
           }
         }}
       >
@@ -67,9 +68,10 @@ export default function SkillInput(props) {
   );
 }
 
-SkillInput.propTypes = {
-  skillId: PropTypes.string.isRequired,
-  skillName: PropTypes.string.isRequired,
-  removeSkill: PropTypes.func.isRequired,
-  editSkill: PropTypes.func.isRequired,
+SimpleInput.propTypes = {
+  inputId: PropTypes.string.isRequired,
+  inputName: PropTypes.string.isRequired,
+  defaultValue: PropTypes.string.isRequired,
+  removeInput: PropTypes.func.isRequired,
+  editInput: PropTypes.func.isRequired,
 };
