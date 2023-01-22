@@ -1,5 +1,6 @@
 import React from 'react';
 import SkillInput from './SkillInput';
+import IconButton from './iconButton';
 
 export default class SkillsFormInfo extends React.Component {
   constructor(props) {
@@ -65,16 +66,11 @@ export default class SkillsFormInfo extends React.Component {
           </span>
           &nbsp;
           Skills
-          &nbsp;
-          <span
-            className="icon is-small"
+          <IconButton
+            className="button title"
             onClick={() => this.addSkill('New Skill')}
-            role="button"
-            tabIndex={0}
-            onKeyDown={() => null}
-          >
-            <i className="fas fa-plus" />
-          </span>
+            icon="fas fa-plus"
+          />
         </span>
         <br />
         <br />
