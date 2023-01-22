@@ -27,6 +27,11 @@ export default class SkillsFormInfo extends React.Component {
     skills[skill] = skill;
     this.setState({ skills });
     localStorage.setItem('skills', JSON.stringify(skills));
+    // wait for the state to update before focusing on the new skill
+    setTimeout(() => {
+      const newSkill = document.getElementById(skill);
+      newSkill.focus();
+    }, 0);
   }
 
   removeSkill = (skillId) => {

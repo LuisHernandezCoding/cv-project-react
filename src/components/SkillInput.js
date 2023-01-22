@@ -24,6 +24,7 @@ export default function SkillInput(props) {
     <div className="flex is-fullWidth">
       <span className={`medium formIcon left ${status}`}><i className="fas fa-angle-right" /></span>
       <h2
+        id={skillId}
         className={`medium formGroup borderRadius ${status}`}
         contentEditable="true"
         suppressContentEditableWarning="true"
