@@ -25,7 +25,7 @@ export default function SumableInput(props) {
     <div className="flex is-fullWidth">
       <span className={`medium formIcon left ${status}`}><i className="fas fa-angle-right" /></span>
       <h2
-        id={inputId}
+        id={inputName}
         className={`medium formGroup borderRadius ${status}`}
         contentEditable="true"
         suppressContentEditableWarning="true"
@@ -40,7 +40,7 @@ export default function SumableInput(props) {
           if (e.target.textContent === '') {
             e.target.textContent = defaultValue;
           }
-          editInput(inputId, e.target.textContent);
+          editInput(e.target.textContent);
         }}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
