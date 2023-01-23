@@ -6,8 +6,11 @@ It is javascript with React, Its a single page application.
 It is a simple form that you fill in and it will be saved in local storage.
 
 ## Previews
+![dd07f79b7da0f8294af5e5cf53d62592](https://user-images.githubusercontent.com/112588805/214177142-03992d7b-05df-4ca4-8440-9bb8fe9c63b2.png)
+![a6f740c757093d2ce449047b13a9944a](https://user-images.githubusercontent.com/112588805/214177043-94825bc2-6c27-4e87-8d70-a0b9c1446bea.png)
 
 ## Live Demo
+[Live Demo Link](https://luishernandezcoding.github.io/cv-project-react/)
 
 ## Long Description
 In this project, i created a simple curriculum vitae builder that you can fill in and save it in local storage, you can add basic information about yourself and your skills and work experience.
