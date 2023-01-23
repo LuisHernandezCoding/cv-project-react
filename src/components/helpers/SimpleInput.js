@@ -2,28 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default class SimpleInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      actualValue: '',
-    };
-  }
-
   componentDidMount() {
     this.loadState();
   }
 
   loadState = () => {
-    const { inputName, defaultValue, callback } = this.props;
-    const actualValue = localStorage.getItem(inputName);
+    const {
+      defaultValue,
+      callback,
+      actualValue,
+    } = this.props;
 
     if (actualValue || actualValue !== null) {
-      this.setState({ actualValue });
-    } else {
-      this.setState({ actualValue: defaultValue });
-      // callback={(value) => this.editEmployment(key, 'endDate', value)}
-      callback(defaultValue);
+      return;
     }
+    callback(defaultValue);
   }
 
   onUpdate = (e) => {
@@ -31,20 +24,19 @@ export default class SimpleInput extends React.Component {
     const value = e.target.textContent;
     if (value === '' || value === ' ') {
       e.target.textContent = defaultValue;
-      this.setState({ actualValue: defaultValue });
       callback(defaultValue);
       return;
     }
-    this.setState({ actualValue: value });
     callback(value);
   }
 
   render() {
     const {
+      size,
+      defaultValue,
+      icon,
       actualValue,
-    } = this.state;
-
-    const { size, defaultValue, icon } = this.props;
+    } = this.props;
 
     let status = 'success';
     if (
@@ -87,8 +79,8 @@ export default class SimpleInput extends React.Component {
 
 SimpleInput.propTypes = {
   size: PropTypes.string.isRequired,
-  inputName: PropTypes.string.isRequired,
   defaultValue: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
   callback: PropTypes.func.isRequired,
+  actualValue: PropTypes.string.isRequired,
 };
