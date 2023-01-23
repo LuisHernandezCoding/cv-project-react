@@ -44,13 +44,13 @@ export default function BasicFormInfo() {
       <div className="slideInFromBottom delay-8 is-third">
         <SimpleInput size="big" actualValue={name} defaultValue="Full Name" icon="user" callback={(value) => saveToLocalStorage('name', value)} />
       </div>
-      <div className="flex slideInFromBottom delay-8 is-two-third">
+      <div className="flex mobile slideInFromBottom delay-8 is-two-third">
         <SimpleInput size="medium" actualValue={title} defaultValue="Job Title" icon="briefcase" callback={(value) => saveToLocalStorage('title', value)} />
         <SimpleInput size="medium" actualValue={email} defaultValue="yourEmail@mail.to" icon="envelope" callback={(value) => saveToLocalStorage('email', value)} />
         <SimpleInput size="medium" actualValue={phone} defaultValue="123456789" icon="phone" callback={(value) => saveToLocalStorage('phone', value)} />
       </div>
       <hr className="slideInFromBottom delay-8" />
-      <div className="flex">
+      <div className="flex mobile">
         <div className="is-third slideInFromLeft delay-9">
           <span className="profileTitle">
             <span className="icon">
@@ -66,6 +66,7 @@ export default function BasicFormInfo() {
           <SimpleInput size="medium" actualValue={city} defaultValue="City" icon="city" callback={(value) => saveToLocalStorage('city', value)} />
           <SimpleInput size="medium" actualValue={country} defaultValue="Country" icon="globe" callback={(value) => saveToLocalStorage('country', value)} />
         </div>
+        <hr className="slideInFromTop delay-9" />
         <div className="is-two-third slideInFromTop delay-9">
           <span className="profileTitle">Profile</span>
           <SimpleInput size="description" actualValue={profile} defaultValue="Profile Description" icon="user" callback={(value) => saveToLocalStorage('profile', value)} />

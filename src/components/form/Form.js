@@ -11,10 +11,11 @@ export default function Form() {
         <div className="form">
           <ProfileImagePicker />
           <BasicFormInfo />
-          <div className="flex">
+          <div className="flex mobile">
             <div className="is-third slideInFromLeft delay-10">
               <SkillsFormInfo />
             </div>
+            <hr className="slideInFromRight delay-9" />
             <div className="is-two-third slideInFromBottom delay-10">
               <EmploymentFormInfo />
             </div>

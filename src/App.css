@@ -117,7 +117,6 @@ main .main__title {
 }
 
 .box {
-  width: 90%;
   height: 100%;
   margin: 0 5%;
   background-color: #fff;
@@ -182,10 +181,9 @@ main .main__title {
   cursor: pointer;
   transition: all 0.3s ease;
   border-radius: 5px;
-  margin: 0 0 0 3em;
+  margin: 0 0 0 0.5em;
   padding: 0.5em;
   position: relative;
-  left: 4em;
   bottom: 0.3em;
 }
 
@@ -316,7 +314,7 @@ main .main__title {
 
 .form .formGroup.big {
   width: 90%;
-  font-size: 1.7em;
+  font-size: 1.5em;
   text-align: center;
 }
 
@@ -338,9 +336,6 @@ main .main__title {
   font-size: 1.5em;
   font-weight: bold;
   text-align: left;
-  position: absolute;
-  top: 0;
-  left: 2.5em;
 }
 
 .borderRadius {
@@ -821,7 +816,37 @@ input.date.success {
     display: block;
   }
 
-  .flex {
+  .is-third {
+    width: 100%;
+  }
+
+  .is-two-third {
+    width: 100% !important;
+  }
+
+  .is-half {
+    width: 100%;
+  }
+
+  .hidden-mobile {
+    display: none;
+  }
+
+  .flex.mobile {
     flex-direction: column;
+  }
+
+  .form .formGroup.big {
+    font-size: 1.2em;
+  }
+
+  .form .profileTitle {
+    font-size: 1.2em;
+  }
+
+  .button.employment.close {
+    position: absolute;
+    right: 1em;
+    top: 4.5em;
   }
 }

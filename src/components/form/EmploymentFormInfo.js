@@ -112,12 +112,10 @@ export default class EmploymentFormInfo extends React.Component {
             icon="fas fa-plus"
           />
         </span>
-        <br />
-        <br />
         {Object.keys(employments).map((key) => (
           <div key={key} className="p-1">
             <hr />
-            <div className="flex">
+            <div className="flex mobile">
               <div className="is-half flex">
                 <SimpleInput
                   size="big"
@@ -128,7 +126,7 @@ export default class EmploymentFormInfo extends React.Component {
                 />
               </div>
               <div className="is-half flex">
-                <span>At: </span>
+                <span className="hidden-mobile">At: </span>
                 <SimpleInput
                   size="big"
                   defaultValue="Company"
@@ -146,19 +144,8 @@ export default class EmploymentFormInfo extends React.Component {
               </div>
             </div>
             <hr />
-            <div className="flex mt-1">
-              <div className="is-half flex">
-                <span className="formIcon big"><i className="fas fa-pencil" /></span>
-                <div className="descriptionTitle">
-                  Job Responsibilities
-                  <IconButton
-                    className="descriptionButton"
-                    onClick={() => this.addDescription(key, 'New Description')}
-                    icon="fas fa-plus"
-                  />
-                </div>
-              </div>
-              <div className="is-half flex">
+            <div className="flex mobile mt-1">
+              <div className="is-half flex p-1">
                 <DateInput
                   actualValue={employments[key].startDate}
                   callback={(value) => this.editEmployment(key, 'startDate', value)}
@@ -173,6 +160,17 @@ export default class EmploymentFormInfo extends React.Component {
                   prefix="To: "
                   dateRange="past"
                 />
+              </div>
+              <div className="is-half flex p-1">
+                <span className="formIcon big"><i className="fas fa-pencil" /></span>
+                <div className="descriptionTitle">
+                  Job Responsibilities
+                  <IconButton
+                    className="descriptionButton"
+                    onClick={() => this.addDescription(key, 'New Description')}
+                    icon="fas fa-plus"
+                  />
+                </div>
               </div>
             </div>
             <div>
