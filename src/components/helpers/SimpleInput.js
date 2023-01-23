@@ -2,8 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default class SimpleInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: '',
+    };
+  }
+
   componentDidMount() {
     this.loadState();
+  }
+
+  updateState = (value) => {
+    this.setState({ value });
   }
 
   loadState = () => {
@@ -12,6 +23,11 @@ export default class SimpleInput extends React.Component {
       callback,
       actualValue,
     } = this.props;
+
+    const { value } = this.state;
+    if (value !== actualValue) {
+      this.updateState(actualValue);
+    }
 
     if (actualValue || actualValue !== null) {
       return;
@@ -24,9 +40,11 @@ export default class SimpleInput extends React.Component {
     const value = e.target.textContent;
     if (value === '' || value === ' ') {
       e.target.textContent = defaultValue;
+      this.setState({ value: defaultValue });
       callback(defaultValue);
       return;
     }
+    this.updateState(value);
     callback(value);
   }
 
@@ -35,16 +53,17 @@ export default class SimpleInput extends React.Component {
       size,
       defaultValue,
       icon,
-      actualValue,
     } = this.props;
+
+    const { value } = this.state;
 
     let status = 'success';
     if (
-      actualValue === ''
-      || actualValue === ' '
-      || actualValue === undefined
-      || actualValue === null
-      || actualValue === defaultValue
+      value === ''
+      || value === ' '
+      || value === undefined
+      || value === null
+      || value === defaultValue
     ) {
       status = 'fail';
     }
@@ -69,7 +88,7 @@ export default class SimpleInput extends React.Component {
             }
           }}
         >
-          {actualValue}
+          {value}
         </h2>
         <span className={`${size} formIcon right ${status}`}><i className="fas fa-edit" /></span>
       </div>
