@@ -146,6 +146,7 @@ export default class EmploymentFormInfo extends React.Component {
                 />
               </div>
             </div>
+            <hr />
             <div className="flex mt-1">
               <div className="is-half flex">
                 <span className="formIcon big"><i className="fas fa-pencil" /></span>
