@@ -82,7 +82,7 @@ export default class SkillsFormInfo extends React.Component {
             inputName={skills[skill]}
             defaultValue="New Skill"
             removeInput={this.removeSkill}
-            editInput={this.editSkill}
+            editInput={(value) => this.editSkill(skill, value)}
           />
         ))}
       </div>
