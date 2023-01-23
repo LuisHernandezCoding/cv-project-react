@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SimpleInput from '../helpers/SimpleInput';
+import SumableInput from '../helpers/SumableInput';
 import IconButton from '../helpers/IconButton';
 
 export default class SkillsFormInfo extends React.Component {
@@ -76,7 +76,7 @@ export default class SkillsFormInfo extends React.Component {
         <br />
         <br />
         {Object.keys(skills).map((skill) => (
-          <SimpleInput
+          <SumableInput
             key={skill}
             inputId={skill}
             inputName={skills[skill]}
