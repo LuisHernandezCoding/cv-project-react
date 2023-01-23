@@ -1,77 +1,94 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function SimpleInput(props) {
-  const {
-    inputId,
-    inputName,
-    defaultValue,
-    removeInput,
-    editInput,
-  } = props;
-
-  let status = 'success';
-  if (
-    inputName === ''
-    || inputName === ' '
-    || inputName === undefined
-    || inputName === null
-    || inputName === defaultValue
-  ) {
-    status = 'fail';
+export default class SimpleInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      actualValue: '',
+    };
   }
 
-  return (
-    <div className="flex is-fullWidth">
-      <span className={`medium formIcon left ${status}`}><i className="fas fa-angle-right" /></span>
-      <h2
-        id={inputId}
-        className={`medium formGroup borderRadius ${status}`}
-        contentEditable="true"
-        suppressContentEditableWarning="true"
-        onFocus={(e) => {
-          if (e.target.textContent === defaultValue) {
-            e.target.textContent = '';
-          } else {
-            e.target.textContent = inputName;
-          }
-        }}
-        onBlur={(e) => {
-          if (e.target.textContent === '') {
-            e.target.textContent = defaultValue;
-          }
-          editInput(inputId, e.target.textContent);
-        }}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter') {
-            e.preventDefault();
-            e.target.blur();
-          }
-        }}
-      >
-        {inputName}
-      </h2>
-      <div
-        className="medium formIcon right danger"
-        onClick={() => removeInput(inputId)}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter') {
-            removeInput(inputId);
-          }
-        }}
-      >
-        X
+  componentDidMount() {
+    this.loadState();
+  }
+
+  loadState = () => {
+    const { inputName, defaultValue, callback } = this.props;
+    const actualValue = localStorage.getItem(inputName);
+
+    if (actualValue || actualValue !== null) {
+      this.setState({ actualValue });
+    } else {
+      this.setState({ actualValue: defaultValue });
+      // callback={(value) => this.editEmployment(key, 'endDate', value)}
+      callback(defaultValue);
+    }
+  }
+
+  onUpdate = (e) => {
+    const { defaultValue, callback } = this.props;
+    const value = e.target.textContent;
+    if (value === '' || value === ' ') {
+      e.target.textContent = defaultValue;
+      this.setState({ actualValue: defaultValue });
+      callback(defaultValue);
+      return;
+    }
+    this.setState({ actualValue: value });
+    callback(value);
+  }
+
+  render() {
+    const {
+      actualValue,
+    } = this.state;
+
+    const { size, defaultValue, icon } = this.props;
+
+    let status = 'success';
+    if (
+      actualValue === ''
+      || actualValue === ' '
+      || actualValue === undefined
+      || actualValue === null
+      || actualValue === defaultValue
+    ) {
+      status = 'fail';
+    }
+
+    return (
+      <div className="flex is-fullWidth">
+        <span className={`${size} formIcon left ${status}`}><i className={`fas fa-${icon}`} /></span>
+        <h2
+          className={`${size} formGroup ${status} borderRadius`}
+          contentEditable="true"
+          suppressContentEditableWarning="true"
+          onFocus={(e) => {
+            if (e.target.textContent === defaultValue) {
+              e.target.textContent = '';
+            }
+          }}
+          onBlur={(e) => this.onUpdate(e)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              e.target.blur();
+            }
+          }}
+        >
+          {actualValue}
+        </h2>
+        <span className={`${size} formIcon right ${status}`}><i className="fas fa-edit" /></span>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 SimpleInput.propTypes = {
-  inputId: PropTypes.string.isRequired,
+  size: PropTypes.string.isRequired,
   inputName: PropTypes.string.isRequired,
   defaultValue: PropTypes.string.isRequired,
-  removeInput: PropTypes.func.isRequired,
-  editInput: PropTypes.func.isRequired,
+  icon: PropTypes.string.isRequired,
+  callback: PropTypes.func.isRequired,
 };
