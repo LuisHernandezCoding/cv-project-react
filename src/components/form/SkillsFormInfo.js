@@ -68,7 +68,7 @@ export default class SkillsFormInfo extends React.Component {
           &nbsp;
           Skills
           <IconButton
-            className="button title"
+            className="titleButton"
             onClick={() => this.addSkill('New Skill')}
             icon="fas fa-plus"
           />

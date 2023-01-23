@@ -2,7 +2,7 @@ import React from 'react';
 import ProfileImagePicker from '../helpers/ProfileImagePicker';
 import BasicFormInfo from './BasicFormInfo';
 import SkillsFormInfo from './SkillsFormInfo';
-import IconButton from '../helpers/IconButton';
+import EmploymentFormInfo from './EmploymentFormInfo';
 
 export default function Form() {
   return (
@@ -12,23 +12,11 @@ export default function Form() {
           <ProfileImagePicker />
           <BasicFormInfo />
           <div className="flex">
-            <div className="is-third slideInFromTop delay-9">
+            <div className="is-third slideInFromLeft delay-10">
               <SkillsFormInfo />
             </div>
-            <div className="is-two-third slideInFromTop delay-9">
-              <span className="profileTitle">
-                <span className="icon">
-                  <i className="fas fa-briefcase" />
-                </span>
-                &nbsp;
-                Employment History
-                <IconButton
-                  className="button title"
-                  onClick={() => null}
-                  icon="fas fa-plus"
-                />
-              </span>
-              <br />
+            <div className="is-two-third slideInFromBottom delay-10">
+              <EmploymentFormInfo />
             </div>
           </div>
         </div>

@@ -12,6 +12,14 @@ aside.sidebar {
   color: #fff;
 }
 
+.descriptionTitle {
+  font-weight: 600;
+  text-align: left;
+  width: 80%;
+  font-size: 1.2em;
+  margin-left: 1em;
+}
+
 aside.sidebar .title {
   font-size: 1.5em;
   font-weight: bold;
@@ -168,7 +176,7 @@ main .main__title {
   color: #fff;
 }
 
-.button.title {
+.titleButton {
   border: 1px solid #2ecc71;
   color: #2ecc71;
   cursor: pointer;
@@ -181,8 +189,34 @@ main .main__title {
   bottom: 0.3em;
 }
 
-.button.title:hover {
+.titleButton:hover {
   background-color: #000;
+  color: #fff;
+}
+
+.descriptionButton {
+  border: 1px solid #2ecc71;
+  color: #2ecc71;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  margin: 0 0 0 3em;
+  padding: 0.5em;
+  font-size: 0.5em;
+}
+
+.button.employment.close {
+  width: 27px;
+  height: 27px;
+  border: 1px solid #e25555;
+  color: #e25555;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+.button.employment.close:hover {
+  background-color: #e25555;
   color: #fff;
 }
 
@@ -206,6 +240,8 @@ main .main__title {
 .form .formIcon {
   position: relative;
   color: gray;
+  top: 3px;
+  font-size: 1.1em;
 }
 
 .form .formIcon.big.right {
@@ -279,7 +315,7 @@ main .main__title {
 }
 
 .form .formGroup.big {
-  width: 30%;
+  width: 90%;
   font-size: 1.7em;
   text-align: center;
 }
@@ -329,6 +365,29 @@ main .main__title {
 
 .form .field:hover {
   background-color: #ffd898;
+}
+
+input.date {
+  outline: none;
+  border: 1px transparent solid;
+  font-size: 1.3em;
+  padding: 0.2em;
+  color: gray;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+input.date:hover {
+  background-color: #ffd898 !important;
+  border: 1px solid #ffc76d !important;
+}
+
+input.date.fail {
+  border: 1px solid #e25555;
+}
+
+input.date.success {
+  border: 1px solid #2ecc71;
 }
 
 .flex {
@@ -404,13 +463,16 @@ main .main__title {
   margin: 5em;
 }
 
+.mt-1 {
+  margin-top: 1em;
+}
+
 .is-block {
   display: block !important;
 }
 
 .is-half {
   width: 50%;
-  margin: 0.5em auto;
 }
 
 .is-third {
@@ -425,12 +487,10 @@ main .main__title {
 
 .is-quarter {
   width: 25%;
-  margin: 0.5em auto;
 }
 
 .is-three-quarter {
   width: 75%;
-  margin: 0.5em auto;
 }
 
 .slideInFromLeft {
@@ -569,6 +629,10 @@ main .main__title {
 
 .delay-9 {
   animation-delay: 3s;
+}
+
+.delay-10 {
+  animation-delay: 3.3s;
 }
 
 @keyframes opacityUp {
