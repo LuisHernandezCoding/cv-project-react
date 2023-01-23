@@ -8,20 +8,23 @@ function saveToLocalStorage(inputName, value) {
 
 export default function BasicFormInfo() {
   let vars = {
-    name: '',
-    title: '',
-    email: '',
-    phone: '',
-    address: '',
-    address2: '',
-    city: '',
-    country: '',
-    profile: '',
+    name: 'Full Name',
+    title: 'Job Title',
+    email: 'yourEmail@mail.to',
+    phone: '123456789',
+    address: 'Address Line 1',
+    address2: 'Address Line 2',
+    city: 'City',
+    country: 'Country',
+    profile: 'Profile Description',
   };
 
   vars = Object.keys(vars).reduce((acc, key) => {
-    acc[key] = localStorage.getItem(key);
-    return acc;
+    const value = localStorage.getItem(key);
+    if (value) {
+      return { ...acc, [key]: value };
+    }
+    return { ...acc, [key]: vars[key] };
   }, {});
 
   const {
