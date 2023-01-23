@@ -119,9 +119,8 @@ export default class EmploymentFormInfo extends React.Component {
             <hr />
             <div className="flex">
               <div className="is-half flex">
-                <span>Charge: </span>
                 <SimpleInput
-                  size="medium"
+                  size="big"
                   defaultValue="Position"
                   icon=""
                   callback={(value) => this.editEmployment(key, 'position', value)}
@@ -131,7 +130,7 @@ export default class EmploymentFormInfo extends React.Component {
               <div className="is-half flex">
                 <span>At: </span>
                 <SimpleInput
-                  size="medium"
+                  size="big"
                   defaultValue="Company"
                   icon=""
                   callback={(value) => this.editEmployment(key, 'company', value)}

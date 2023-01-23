@@ -29,10 +29,7 @@ export default function Sidebar() {
             First place your basic information then Add your skills and experience.
           </p>
           <p className="text slideInFromLeft delay-5">
-            when you are done, click on the download button. and you will get your CV in PDF format.
-          </p>
-          <p className="text slideInFromLeft delay-6">
-            Your Cv will be saved in your browser locally so you can edit it later.
+            Also, you can add your Employment History.
           </p>
         </div>
       </div>
