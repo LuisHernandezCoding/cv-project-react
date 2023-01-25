@@ -6,7 +6,7 @@ function saveToLocalStorage(inputName, value) {
   localStorage.setItem(inputName, value);
 }
 
-export default function BasicFormInfo() {
+const BasicFormInfo = () => {
   let vars = {
     name: 'Full Name',
     title: 'Job Title',
@@ -75,4 +75,6 @@ export default function BasicFormInfo() {
       <hr className="slideInFromBottom delay-9" />
     </div>
   );
-}
+};
+
+export default BasicFormInfo;
