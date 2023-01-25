@@ -1,91 +1,77 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
 import SumableInput from '../helpers/SumableInput';
 import IconButton from '../helpers/IconButton';
 
-export default class SkillsFormInfo extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      skills: {},
-    };
-  }
+const SkillsFormInfo = () => {
+  const [skills, setSkills] = useState({});
 
-  componentDidMount() {
-    this.loadState();
-  }
-
-  loadState = () => {
-    const skills = localStorage.getItem('skills');
-    if (skills) {
-      this.setState({ skills: JSON.parse(skills) });
+  useEffect(() => {
+    const skillsFromStorage = localStorage.getItem('skills');
+    if (skillsFromStorage) {
+      setSkills(JSON.parse(skillsFromStorage));
     } else {
-      this.setState({ skills: {} });
+      setSkills({});
     }
-  }
+  }, []);
 
-  addSkill = (skill) => {
-    const { skills } = this.state;
-    skills[skill] = skill;
-    this.setState({ skills });
-    localStorage.setItem('skills', JSON.stringify(skills));
-    // wait for the state to update before focusing on the new skill
+  const addSkill = (skill) => {
+    setSkills({ ...skills, [skill]: skill });
+    localStorage.setItem('skills', JSON.stringify({ ...skills, [skill]: skill }));
     setTimeout(() => {
       const newSkill = document.getElementById(skill);
       newSkill.focus();
     }, 0);
-  }
+  };
 
-  removeSkill = (skillId) => {
-    const { skills } = this.state;
-    delete skills[skillId];
-    this.setState({ skills });
-    localStorage.setItem('skills', JSON.stringify(skills));
-  }
+  const removeSkill = (skillId) => {
+    const newSkills = { ...skills };
+    delete newSkills[skillId];
+    setSkills(newSkills);
+    localStorage.setItem('skills', JSON.stringify(newSkills));
+  };
 
-  editSkill = (skillId, newSkill) => {
-    const { skills } = this.state;
-    skills[skillId] = newSkill;
+  const editSkill = (skillId, newSkill) => {
+    const newSkills = { ...skills };
+    newSkills[skillId] = newSkill;
     if (skillId !== newSkill) {
-      skills[newSkill] = skills[skillId];
-      delete skills[skillId];
+      newSkills[newSkill] = newSkills[skillId];
+      delete newSkills[skillId];
     }
     if (skillId === 'New Skill' || newSkill === '') {
-      delete skills[skillId];
+      delete newSkills[skillId];
     }
-    this.setState({ skills });
-    localStorage.setItem('skills', JSON.stringify(skills));
-  }
+    setSkills(newSkills);
+    localStorage.setItem('skills', JSON.stringify(newSkills));
+  };
 
-  render() {
-    const { skills } = this.state;
-    return (
-      <div>
-        <span className="profileTitle">
-          <span className="icon">
-            <i className="fas fa-book" />
-          </span>
-          &nbsp;
-          Skills
-          <IconButton
-            className="titleButton"
-            onClick={() => this.addSkill('New Skill')}
-            icon="fas fa-plus"
-          />
+  return (
+    <div>
+      <span className="profileTitle">
+        <span className="icon">
+          <i className="fas fa-book" />
         </span>
-        <br />
-        <br />
-        {Object.keys(skills).map((skill) => (
-          <SumableInput
-            key={skill}
-            inputId={skill}
-            inputName={skills[skill]}
-            defaultValue="New Skill"
-            removeInput={this.removeSkill}
-            editInput={(value) => this.editSkill(skill, value)}
-          />
-        ))}
-      </div>
-    );
-  }
-}
+        &nbsp;
+        Skills
+        <IconButton
+          className="titleButton"
+          onClick={() => addSkill('New Skill')}
+          icon="fas fa-plus"
+        />
+      </span>
+      <br />
+      <br />
+      {Object.keys(skills).map((skill) => (
+        <SumableInput
+          key={skill}
+          inputId={skill}
+          inputName={skills[skill]}
+          defaultValue="New Skill"
+          removeInput={removeSkill}
+          editInput={(value) => editSkill(skill, value)}
+        />
+      ))}
+    </div>
+  );
+};
+
+export default SkillsFormInfo;
