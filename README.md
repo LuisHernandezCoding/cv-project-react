@@ -7,7 +7,7 @@ It is a simple form that you fill in and it will be saved in local storage.
 
 ## Previews
 ![dd07f79b7da0f8294af5e5cf53d62592](https://user-images.githubusercontent.com/112588805/214177142-03992d7b-05df-4ca4-8440-9bb8fe9c63b2.png)
-![a6f740c757093d2ce449047b13a9944a](https://user-images.githubusercontent.com/112588805/214177043-94825bc2-6c27-4e87-8d70-a0b9c1446bea.png)
+![c20e94df1e230c8ca30a0dd2fb1f3233](https://user-images.githubusercontent.com/112588805/214178073-d1cde486-3c49-4e01-b04a-62653cbb79c9.png)
 
 ## Live Demo
 [Live Demo Link](https://luishernandezcoding.github.io/cv-project-react/)
