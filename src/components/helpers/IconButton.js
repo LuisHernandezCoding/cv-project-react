@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function IconButton(props) {
+function IconButton(props) {
   const { className, onClick, icon } = props;
   return (
     <button
@@ -19,3 +19,5 @@ IconButton.propTypes = {
   onClick: PropTypes.func.isRequired,
   icon: PropTypes.string.isRequired,
 };
+
+export default IconButton;
