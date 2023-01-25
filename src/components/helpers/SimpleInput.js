@@ -1,100 +1,80 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-export default class SimpleInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: '',
-    };
-  }
+const SimpleInput = ({
+  size,
+  defaultValue,
+  icon,
+  callback,
+  actualValue,
+}) => {
+  const [value, setValue] = useState('');
 
-  componentDidMount() {
-    this.loadState();
-  }
-
-  updateState = (value) => {
-    this.setState({ value });
-  }
-
-  loadState = () => {
-    const {
-      defaultValue,
-      callback,
-      actualValue,
-    } = this.props;
-
-    const { value } = this.state;
+  const loadState = () => {
     if (value !== actualValue) {
-      this.updateState(actualValue);
+      setValue(actualValue);
     }
 
     if (actualValue || actualValue !== null) {
       return;
     }
     callback(defaultValue);
-  }
+  };
 
-  onUpdate = (e) => {
-    const { defaultValue, callback } = this.props;
+  useEffect(() => {
+    loadState();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const onUpdate = (e) => {
     const value = e.target.textContent;
     if (value === '' || value === ' ') {
       e.target.textContent = defaultValue;
-      this.setState({ value: defaultValue });
+      setValue(defaultValue);
       callback(defaultValue);
       return;
     }
-    this.updateState(value);
+    setValue(value);
     callback(value);
+  };
+
+  let status = 'success';
+  if (
+    value === ''
+    || value === ' '
+    || value === undefined
+    || value === null
+    || value === defaultValue
+  ) {
+    status = 'fail';
   }
 
-  render() {
-    const {
-      size,
-      defaultValue,
-      icon,
-    } = this.props;
-
-    const { value } = this.state;
-
-    let status = 'success';
-    if (
-      value === ''
-      || value === ' '
-      || value === undefined
-      || value === null
-      || value === defaultValue
-    ) {
-      status = 'fail';
-    }
-
-    return (
-      <div className="flex is-fullWidth">
-        <span className={`${size} formIcon left ${status}`}><i className={`fas fa-${icon}`} /></span>
-        <h2
-          className={`${size} formGroup ${status} borderRadius`}
-          contentEditable="true"
-          suppressContentEditableWarning="true"
-          onFocus={(e) => {
-            if (e.target.textContent === defaultValue) {
-              e.target.textContent = '';
-            }
-          }}
-          onBlur={(e) => this.onUpdate(e)}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') {
-              e.preventDefault();
-              e.target.blur();
-            }
-          }}
-        >
-          {value}
-        </h2>
-        <span className={`${size} formIcon right ${status}`}><i className="fas fa-edit" /></span>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="flex is-fullWidth">
+      <span className={`${size} formIcon left ${status}`}><i className={`fas fa-${icon}`} /></span>
+      <h2
+        className={`${size} formGroup ${status} borderRadius`}
+        contentEditable="true"
+        suppressContentEditableWarning="true"
+        onFocus={(e) => {
+          if (e.target.textContent === defaultValue) {
+            e.target.textContent = '';
+          }
+        }}
+        onBlur={(e) => onUpdate(e)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            e.target.blur();
+          }
+        }}
+      >
+        {value}
+      </h2>
+      <span className={`${size} formIcon right ${status}`}><i className="fas fa-edit" /></span>
+    </div>
+  );
+};
 
 SimpleInput.propTypes = {
   size: PropTypes.string.isRequired,
@@ -103,3 +83,5 @@ SimpleInput.propTypes = {
   callback: PropTypes.func.isRequired,
   actualValue: PropTypes.string.isRequired,
 };
+
+export default SimpleInput;
