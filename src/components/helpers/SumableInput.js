@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function SumableInput({
+const SumableInput = ({
   inputId,
   inputName,
   defaultValue,
   removeInput,
   editInput,
-}) {
+}) => {
   let status = 'success';
   if (
     inputName === ''
@@ -64,7 +64,7 @@ function SumableInput({
       </div>
     </div>
   );
-}
+};
 
 SumableInput.propTypes = {
   inputId: PropTypes.string.isRequired,
