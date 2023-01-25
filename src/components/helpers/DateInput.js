@@ -1,75 +1,68 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-export default class DateInput extends React.Component {
-  componentDidMount() {
-    this.loadState();
-  }
+const DateInput = ({
+  defaultValue,
+  prefix,
+  actualValue,
+  dateRange,
+  callback,
+}) => {
+  const [value, setValue] = useState(actualValue);
 
-  loadState = () => {
-    const { defaultValue, callback, actualValue } = this.props;
-
+  useEffect(() => {
     if (actualValue || actualValue !== null) {
       return;
     }
     callback(defaultValue);
-  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [actualValue]);
 
-  onUpdate = (e) => {
-    const { defaultValue, callback } = this.props;
-    const { value } = e.target;
-    if (value === '' || value === ' ') {
-      e.target.value = defaultValue;
+  const onUpdate = (e) => {
+    const { value: inputValue } = e.target;
+    if (inputValue === '' || inputValue === ' ') {
+      setValue(defaultValue);
       callback(defaultValue);
       return;
     }
-    callback(value);
+    setValue(inputValue);
+    callback(inputValue);
+  };
+
+  let status = 'success';
+  if (
+    actualValue === ''
+    || actualValue === ' '
+    || actualValue === undefined
+    || actualValue === null
+    || actualValue === defaultValue
+  ) {
+    status = 'fail';
   }
 
-  render() {
-    const {
-      defaultValue,
-      prefix,
-      actualValue,
-      dateRange,
-    } = this.props;
-
-    let status = 'success';
-    if (
-      actualValue === ''
-      || actualValue === ' '
-      || actualValue === undefined
-      || actualValue === null
-      || actualValue === defaultValue
-    ) {
-      status = 'fail';
-    }
-
-    const today = new Date().toISOString().split('T')[0];
-    let [min, max] = [today, '2100-01-01'];
-    if (dateRange === 'past') {
-      [min, max] = ['1900-01-01', today];
-    }
-
-    return (
-      <div className="is-fullWidth">
-        <span className={`formIcon left ${status}`}>
-          {prefix}
-        </span>
-        &nbsp;
-        <input
-          type="date"
-          className={`date ${status}`}
-          onChange={this.onUpdate}
-          value={actualValue}
-          min={min}
-          max={max}
-        />
-      </div>
-    );
+  const today = new Date().toISOString().split('T')[0];
+  let [min, max] = [today, '2100-01-01'];
+  if (dateRange === 'past') {
+    [min, max] = ['1900-01-01', today];
   }
-}
 
+  return (
+    <div className="is-fullWidth">
+      <span className={`formIcon left ${status}`}>
+        {prefix}
+      </span>
+      &nbsp;
+      <input
+        type="date"
+        className={`date ${status}`}
+        onChange={onUpdate}
+        value={value}
+        min={min}
+        max={max}
+      />
+    </div>
+  );
+};
 DateInput.propTypes = {
   actualValue: PropTypes.string.isRequired,
   defaultValue: PropTypes.string.isRequired,
@@ -77,3 +70,5 @@ DateInput.propTypes = {
   dateRange: PropTypes.string.isRequired,
   callback: PropTypes.func.isRequired,
 };
+
+export default DateInput;
