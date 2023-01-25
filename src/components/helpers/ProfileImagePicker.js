@@ -1,33 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default class ProfileImagePicker extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      image: 'none',
-    };
-  }
+const ProfileImagePicker = () => {
+  const [image, setImage] = useState('none');
 
-  componentDidMount() {
-    this.loadState();
-  }
+  const loadState = () => {
+    const imageFromStorage = localStorage.getItem('image');
 
-  loadState = () => {
-    const image = localStorage.getItem('image');
-
-    if (image || image !== null) {
-      this.setState({ image });
+    if (imageFromStorage || imageFromStorage !== null) {
+      setImage(imageFromStorage);
     } else {
-      this.setState({ image: 'none' });
+      setImage('none');
     }
-  }
+  };
 
-  saveImage = (image) => {
-    localStorage.setItem('image', image);
-    this.setState({ image });
-  }
+  useEffect(() => {
+    loadState();
+  }, []);
 
-  openImageUploadWindow = () => {
+  const saveImage = (newImage) => {
+    localStorage.setItem('image', newImage);
+    setImage(newImage);
+  };
+
+  const openImageUploadWindow = () => {
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = 'image/jpeg, image/png';
@@ -39,35 +34,33 @@ export default class ProfileImagePicker extends React.Component {
       if (file.type === 'image/jpeg' || file.type === 'image/png') {
         const reader = new FileReader();
         reader.onload = () => {
-          this.saveImage(reader.result);
+          saveImage(reader.result);
         };
         reader.readAsDataURL(file);
       }
     };
     input.click();
-  }
+  };
 
-  render() {
-    const { image } = this.state;
-
-    if (image === 'none') {
-      return (
-        <div className="profileImage fail rollInFromLeft delay-7">
-          <img src="https://placehold.jp/150x150.png" alt="profile" />
-          <button type="button" className="imageButton button rounded" onClick={this.openImageUploadWindow}>
-            <i className="fas fa-upload" />
-          </button>
-        </div>
-      );
-    }
-
+  if (image === 'none') {
     return (
-      <div className="profileImage success rollInFromLeft delay-9">
-        <img src={image} alt="profile" />
-        <button type="button" className="imageButton button rounded" onClick={this.openImageUploadWindow}>
+      <div className="profileImage fail rollInFromLeft delay-7">
+        <img src="https://placehold.jp/150x150.png" alt="profile" />
+        <button type="button" className="imageButton button rounded" onClick={openImageUploadWindow}>
           <i className="fas fa-upload" />
         </button>
       </div>
     );
   }
-}
+
+  return (
+    <div className="profileImage success rollInFromLeft delay-9">
+      <img src={image} alt="profile" />
+      <button type="button" className="imageButton button rounded" onClick={openImageUploadWindow}>
+        <i className="fas fa-upload" />
+      </button>
+    </div>
+  );
+};
+
+export default ProfileImagePicker;
