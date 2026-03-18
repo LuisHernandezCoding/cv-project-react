@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# Project Name: Curriculum Vitae Builder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Short Description
+This is a simple curriculum vitae generator. 
+It is javascript with React, Its a single page application. 
+It is a simple form that you fill in and it will be saved in local storage.
 
-## Available Scripts
+## Previews
+![dd07f79b7da0f8294af5e5cf53d62592](https://user-images.githubusercontent.com/112588805/214177142-03992d7b-05df-4ca4-8440-9bb8fe9c63b2.png)
+![c20e94df1e230c8ca30a0dd2fb1f3233](https://user-images.githubusercontent.com/112588805/214178073-d1cde486-3c49-4e01-b04a-62653cbb79c9.png)
 
-In the project directory, you can run:
+## Live Demo
+[Live Demo Link](https://luishernandezcoding.github.io/cv-project-react/)
 
-### `npm start`
+## Long Description
+In this project, i created a simple curriculum vitae builder that you can fill in and save it in local storage, you can add basic information about yourself and your skills and work experience.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Its the second project of the React module in [The Odin Project](https://www.theodinproject.com/) curriculum.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
+- Add basic information about yourself (name, email, phone, address)
+- Add a basic profile description
+- Add your skills one by one in a list
+- Add your employment history
+- Add Job Responsibilities to each employment
 
-### `npm test`
+## Learning Outcomes
+- Javascript
+- React
+- React components
+- Local Storage
+- Modular code organization
+- Single page application
+- ES6 syntax
+- JSX
+- CSS
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Built With
+- Javascript
+- NPM
+- React
+- React components
+- Local Storage
+- VS Code
+- Git
+- Github
+- Git Flow
+- ESLint
+- Stylelint
+- Webhint
 
-### `npm run build`
+## Getting Started
+To get a local copy up and running follow these simple example steps.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
+- Node.js
+- NPM
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Setup
+- Clone the repository to your local machine
+- Open the terminal and navigate to the project folder
+- Run `npm install` to install the dependencies
+- Run `npm start` to start the server
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Usage
+- Open the terminal and navigate to the project folder
+- Run `npm start` to start the server
+- Open your browser and go to `http://localhost:3000/`
 
-### `npm run eject`
+## Authors
+👤 **Luis Hernandez**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- GitHub: [@LuisHernandezCoding](https://github.com/LuisHernandezCoding)
+- LinkedIn: [Luis Hernandez](https://www.linkedin.com/in/luis-hernandez-coding/)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Credits:
+- [The Odin Project](https://www.theodinproject.com/)

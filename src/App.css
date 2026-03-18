@@ -1,3 +1,852 @@
 .App {
   text-align: left;
+  display: flex;
+}
+
+/* Sidebar */
+aside.sidebar {
+  float: left;
+  width: 20%;
+  min-height: 100vh;
+  background-color: #373737;
+  color: #fff;
+}
+
+.descriptionTitle {
+  font-weight: 600;
+  text-align: left;
+  width: 80%;
+  font-size: 1.2em;
+  margin-left: 1em;
+}
+
+aside.sidebar .title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+aside.sidebar .subtitle {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+aside.sidebar .text {
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+
+aside.sidebar .text.italic {
+  font-style: italic;
+}
+
+aside.sidebar .text.is-bold {
+  font-weight: bold;
+}
+
+aside.sidebar .title a {
+  color: #fff;
+}
+
+aside.sidebar .title a:hover {
+  color: rgb(214, 214, 214);
+}
+
+/* Main */
+main {
+  float: left;
+  width: 80%;
+  min-height: 100vh;
+  background-color: rgb(43, 42, 74);
+}
+
+main .content {
+  min-height: 90vh;
+}
+
+main .main__title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.alert {
+  width: 81%;
+  margin: 0 4.5%;
+  background-color: rgb(159, 159, 159);
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+
+.alert.success {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+.alert.error {
+  background-color: #e25555;
+  color: #fff;
+}
+
+.alert p.message {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 0;
+  padding: 1em;
+}
+
+.alert .close {
+  position: relative;
+  top: -35px;
+  left: 10px;
+  cursor: pointer;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.center {
+  text-align: center;
+}
+
+.box {
+  height: 100%;
+  margin: 0 5%;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.profileImage img {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  margin: 0 auto;
+  transition: all 1s ease;
+}
+
+.profileImage.fail img {
+  border: 5px solid #e25555;
+}
+
+.profileImage.success img {
+  border: 5px solid #2ecc71;
+}
+
+.profileImage .imageButton {
+  position: relative;
+  top: -120px;
+  left: -30px;
+  width: 34px;
+  height: 34px;
+}
+
+.button.rounded {
+  border-radius: 100%;
+  background-color: #fff;
+  border: 1px solid #000;
+  color: #000;
+  font-size: 1.5em;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button.rounded:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.button.rounded .fas {
+  font-size: 0.8em;
+  padding: 0;
+  padding-bottom: 1em;
+}
+
+.button.rounded:hover .fa {
+  color: #fff;
+}
+
+.titleButton {
+  border: 1px solid #2ecc71;
+  color: #2ecc71;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  margin: 0 0 0 0.5em;
+  padding: 0.5em;
+  position: relative;
+  bottom: 0.3em;
+}
+
+.titleButton:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.descriptionButton {
+  border: 1px solid #2ecc71;
+  color: #2ecc71;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  margin: 0 0 0 3em;
+  padding: 0.5em;
+  font-size: 0.5em;
+}
+
+.button.employment.close {
+  width: 27px;
+  height: 27px;
+  border: 1px solid #e25555;
+  color: #e25555;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+.button.employment.close:hover {
+  background-color: #e25555;
+  color: #fff;
+}
+
+.form .formGroup {
+  color: gray;
+  width: 30%;
+  margin: 0;
+  padding: 0 1em;
+  font-size: 1.3em;
+  transition: all 0.3s ease;
+  border: 3px transparent solid;
+  text-align: left;
+}
+
+.form .formGroup:hover {
+  background-color: #ffd898 !important;
+  cursor: pointer;
+  border: 3px solid #ffc76d;
+}
+
+.form .formIcon {
+  position: relative;
+  color: gray;
+  top: 3px;
+  font-size: 1.1em;
+}
+
+.form .formIcon.big.right {
+  font-size: 1.5em;
+  top: 3px;
+  left: -30px;
+}
+
+.form .formIcon.medium.right {
+  font-size: 1.2em;
+  top: -1px;
+  left: -25px;
+}
+
+.form .formIcon.small.right {
+  font-size: 0.8em;
+  top: -1px;
+  left: -10px;
+}
+
+.form .formIcon.big.left {
+  font-size: 1.5em;
+  top: 3px;
+  right: -30px;
+}
+
+.form .formIcon.medium.left {
+  font-size: 1.2em;
+  top: -1px;
+  right: -25px;
+}
+
+.form .formIcon.small.left {
+  font-size: 0.8em;
+  top: -1px;
+  right: -10px;
+}
+
+.form .formIcon.small {
+  font-size: 0.8em;
+}
+
+.form .formIcon.description.left {
+  font-size: 1.2em;
+  top: 3px;
+  right: -30px;
+  color: black;
+}
+
+.form .formIcon.description.right {
+  font-size: 1.2em;
+  top: 3px;
+  left: -30px;
+}
+
+.form .formIcon.success.left {
+  color: black;
+}
+
+.form .formIcon.success.right {
+  color: #2ecc71;
+}
+
+.form .formIcon.danger.right {
+  color: #e25555;
+  cursor: pointer;
+}
+
+.form .formGroup.success {
+  color: black;
+}
+
+.form .formGroup.big {
+  width: 90%;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.form .formGroup.medium {
+  width: 90%;
+  font-size: 0.9em;
+  padding: 0 2em;
+}
+
+.form .formGroup.description {
+  width: 90%;
+  font-size: 1em;
+  padding: 0 2em;
+  min-height: 110px;
+  padding-top: 2em;
+}
+
+.form .profileTitle {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: left;
+}
+
+.borderRadius {
+  border-radius: 0.7em;
+}
+
+.form .formGroup .fas {
+  font-size: 0.7em;
+}
+
+.form .field {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.3em;
+  padding: 0.5em;
+  color: gray;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.form .field:hover {
+  background-color: #ffd898;
+}
+
+input.date {
+  outline: none;
+  border: 1px transparent solid;
+  font-size: 1.3em;
+  padding: 0.2em;
+  color: gray;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+input.date:hover {
+  background-color: #ffd898 !important;
+  border: 1px solid #ffc76d !important;
+}
+
+input.date.fail {
+  border: 1px solid #e25555;
+}
+
+input.date.success {
+  border: 1px solid #2ecc71;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
+.is-fullWidth {
+  width: 100%;
+}
+
+.footer {
+  margin: 1em;
+  font-size: 1em;
+  text-align: center;
+  color: #fff;
+}
+
+.footer .link {
+  color: #e8ddcb;
+}
+
+.footer .link:hover {
+  color: #cdb380;
+}
+
+.footer .heart {
+  color: #e25555;
+}
+
+.p-1 {
+  padding: 1em;
+}
+
+.p-2 {
+  padding: 2em;
+}
+
+.p-3 {
+  padding: 3em;
+}
+
+.p-4 {
+  padding: 4em;
+}
+
+.p-5 {
+  padding: 5em;
+}
+
+.px-1 {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.m-1 {
+  margin: 1em;
+}
+
+.m-2 {
+  margin: 2em;
+}
+
+.m-3 {
+  margin: 3em;
+}
+
+.m-4 {
+  margin: 4em;
+}
+
+.m-5 {
+  margin: 5em;
+}
+
+.mt-1 {
+  margin-top: 1em;
+}
+
+.is-block {
+  display: block !important;
+}
+
+.is-half {
+  width: 50%;
+}
+
+.is-third {
+  width: 33.333%;
+  margin: 0.5em auto;
+}
+
+.is-two-third {
+  width: 66.666%;
+  margin: 0.5em auto;
+}
+
+.is-quarter {
+  width: 25%;
+}
+
+.is-three-quarter {
+  width: 75%;
+}
+
+.slideInFromLeft {
+  animation-name: slideInFromLeft;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.slideOutToLeft {
+  animation-name: slideOutToLeft;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 1;
+}
+
+.slideInFromRight {
+  animation-name: slideInFromRight;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.slideOutToRight {
+  animation-name: slideOutToRight;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 1;
+}
+
+.slideInFromTop {
+  animation-name: slideInFromTop;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.slideOutToTop {
+  animation-name: slideOutToTop;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 1;
+}
+
+.slideInFromBottom {
+  animation-name: slideInFromBottom;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.slideOutToBottom {
+  animation-name: slideOutToBottom;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 1;
+}
+
+.rollInFromRight {
+  animation-name: rollInFromRight;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.rollInFromLeft {
+  animation-name: rollInFromLeft;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.opacityUp {
+  animation-name: opacityUp;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.opacityDown {
+  animation-name: opacityDown;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 1;
+}
+
+.opacityUpDelay {
+  animation-name: opacityUpDelay;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.opacityDownDelay {
+  animation-name: opacityDownDelay;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 1;
+}
+
+.delay-0 {
+  animation-delay: 0s;
+}
+
+.delay-1 {
+  animation-delay: 0.3s;
+}
+
+.delay-2 {
+  animation-delay: 0.6s;
+}
+
+.delay-3 {
+  animation-delay: 1s;
+}
+
+.delay-4 {
+  animation-delay: 1.3s;
+}
+
+.delay-5 {
+  animation-delay: 1.6s;
+}
+
+.delay-6 {
+  animation-delay: 2s;
+}
+
+.delay-7 {
+  animation-delay: 2.3s;
+}
+
+.delay-8 {
+  animation-delay: 2.6s;
+}
+
+.delay-9 {
+  animation-delay: 3s;
+}
+
+.delay-10 {
+  animation-delay: 3.3s;
+}
+
+@keyframes opacityUp {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes opacityDown {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes opacityUpDelay {
+  from {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes opacityDownDelay {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToLeft {
+  from {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToRight {
+  from {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToTop {
+  from {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToBottom {
+  from {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes rollInFromRight {
+  from {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+
+  to {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes rollInFromLeft {
+  from {
+    transform: translateX(-100%) rotate(-720deg);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0%) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  aside.sidebar {
+    width: 100%;
+    display: none;
+  }
+
+  main {
+    width: 100%;
+  }
+
+  .App {
+    display: block;
+  }
+
+  .is-third {
+    width: 100%;
+  }
+
+  .is-two-third {
+    width: 100% !important;
+  }
+
+  .is-half {
+    width: 100%;
+  }
+
+  .hidden-mobile {
+    display: none;
+  }
+
+  .flex.mobile {
+    flex-direction: column;
+  }
+
+  .form .formGroup.big {
+    font-size: 1.2em;
+  }
+
+  .form .profileTitle {
+    font-size: 1.2em;
+  }
+
+  .button.employment.close {
+    position: absolute;
+    right: 1em;
+    top: 4.5em;
+  }
 }
